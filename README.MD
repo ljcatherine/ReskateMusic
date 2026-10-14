@@ -102,6 +102,8 @@ Install **Git**, **CMake 3.24+**, and **Visual Studio 2022** with Desktop develo
 
 The build script places upstream source and its build outputs in `%LOCALAPPDATA%\ReskateMusic\build-cache`, overlays this repository's changed files, and builds an x64 Release runtime. It produces runtime and complete corresponding source ZIPs under `dist/`. The first build requires network access and can take several minutes.
 
+Builds explicitly disable upstream's optional Rust Spotify Connect helper, even when Cargo is installed. Spotify playback uses the desktop application and Windows media sessions; Cargo and a pre-populated Rust dependency cache are not required.
+
 ```text
 ReskateMusic/
 ├── .github/workflows/     Windows build and artifact upload

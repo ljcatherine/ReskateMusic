@@ -31,7 +31,11 @@ Get-ChildItem -LiteralPath $sourceRoot -Recurse -File | ForEach-Object {
 }
 Push-Location $checkout
 try {
-    Invoke-Checked -Command cmake -Arguments @('--preset', 'vs2022-x64')
+    # Match our desktop Spotify runtime on every machine. Upstream auto-enables
+    # the optional Rust Connect helper when Cargo is installed, but its CMake
+    # configure step assumes Cargo dependencies have already been downloaded.
+    # OFF prevents find_program from searching and makes the helper condition false.
+    Invoke-Checked -Command cmake -Arguments @('--preset', 'vs2022-x64', '-DDINGOSDK_CARGO:FILEPATH=OFF')
     Invoke-Checked -Command cmake -Arguments @('--build', '--preset', 'release', '--target', 'dingosdk_runtime', '--parallel', '8')
 } finally { Pop-Location }
 $package = Join-Path $repoRoot 'dist\ReskateMusic'
