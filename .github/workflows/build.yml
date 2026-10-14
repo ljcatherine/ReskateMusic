@@ -1,0 +1,21 @@
+name: Windows build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test and build runtime
+        shell: pwsh
+        run: ./tools/Build.ps1
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: ReskateMusic-windows-x64
+          path: dist/*.zip
+          if-no-files-found: error

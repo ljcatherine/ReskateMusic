@@ -1,0 +1,12 @@
+/dist/
+/build/
+/tests/build/
+*.log
+*.pdb
+*.obj
+*.user
+.vs/
+.idea/
+.DS_Store
+Thumbs.db
+*.backup-*
