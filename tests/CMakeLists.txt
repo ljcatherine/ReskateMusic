@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.24)
+project(ReskateMusicTests LANGUAGES CXX)
+enable_testing()
+add_executable(spotify_actions_tests spotify_actions_tests.cpp)
+target_compile_features(spotify_actions_tests PRIVATE cxx_std_20)
+add_test(NAME spotify_actions COMMAND spotify_actions_tests)
