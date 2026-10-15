@@ -15,7 +15,7 @@
 
 ---
 
-ReskateMusic brings Spotify controls into **skate.'s pause menu**, with a small translucent now-playing card in the bottom-right corner. Built on [ReSkate](https://github.com/Dingo-Shenanigans/ReSkate), it uses the existing native runtime and Windows media controls. Spicetify is not required.
+ReskateMusic brings Spotify controls into **skate.'s pause menu**, with a small translucent now-playing card in the bottom-right corner. Built on [ReSkate](https://github.com/Dingo-Shenanigans/ReSkate), it uses the existing native runtime and Windows media controls.
 
 > **Experimental release.** The Windows runtime compiles and input validation tests pass. Live gameplay, controller interaction and authenticated Spotify requests have not yet been verified. This project currently ships a custom `ReSkate.dll` replacement.
 
